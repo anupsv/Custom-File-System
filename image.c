@@ -41,11 +41,6 @@ static int image_read(struct blkdev *dev, int offset, int len, void *buf)
 
     int result = pread(im->fd, buf, len*BLOCK_SIZE, offset*BLOCK_SIZE);
 
-    /* Since I'm not asking for the code that calls this to handle
-     * errors other than E_BADADDR and E_UNAVAIL, we report errors and
-     * then exit. Since we already checked the address, this shouldn't
-     * happen very often.
-     */
     if (result < 0) {
         fprintf(stderr, "read error on %s: %s\n", im->path, strerror(errno));
         assert(0);
