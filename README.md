@@ -5,10 +5,12 @@ specified at the end of this file. (the blkdev pointer can be found in the globa
 
 ## STRUCTURES:
 ```
+File System Format:
 +-------------+--------------+--------------+---------+-------------+
 | SUPER BLOCK | INODE BITMAP | BLOCK BITMAP | INODES  | DATA BLOCKS |
 +-------------+--------------+--------------+---------+-------------+
 
+Inode Structure:
 +----------------------+-----------+
 |     Description      |   Usage   |
 +----------------------+-----------+
@@ -29,4 +31,17 @@ specified at the end of this file. (the blkdev pointer can be found in the globa
 |                      |           |
 | indirect pointer 2   | indir_2   |
 +----------------------+-----------+
+
+Directories:
++-------------+----------+
+| Description |   Size   |
++-------------+----------+
+| valid       | 1-bit    |
+|             |          |
+| isDir       | 1-bit    |
+|             |          |
+| inode       | 30-bits  |
+|             |          |
+| name        | 28-bytes |
++-------------+----------+
 ```
